@@ -1,0 +1,100 @@
+<style>
+
+.noisli-popup .modal-content {
+  background-color: rgb(249,249,249);
+  border-radius: 20px;
+  color: rgb(201, 201, 201);
+}
+
+.noisli-popup .modal-header {
+  border-bottom: 0;
+  text-align: center;
+}
+
+.noisli-popup .modal-footer {
+  border-top: 0;
+}
+
+.noisli-popup .modal-title {
+  color: rgb(138, 220, 179);
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.noisli-popup .close {
+  font-size: medium;
+}
+
+.noisli-popup .close-image {
+  height: 10px;
+  width: 10px;
+}
+
+.noisli-popup .btn-primary {
+  
+  font-size: 15px;
+  font-weight: 700;
+
+  background-color: rgb(138,220,179);
+  color: rgb(255,255,255);
+
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 17.5px;
+  
+  height: 35px;
+  line-height: 35px;
+  min-width: 180px;
+  padding: 0 10px;
+
+  border: 0;
+  outline: 0;
+}
+
+.noisli-popup .btn-primary:active,
+.noisli-popup .btn-primary:focus {
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+}
+
+.noisli-popup .modal-bottom-line {
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+}
+
+.noisli-popup .modal-link {
+  text-decoration: underline !important;
+}
+
+.noisli-popup .modal-body {
+  padding-left: ;
+  padding-right: ;
+}
+
+.noisli-popup .modal-body-text {
+  margin: 0;
+}
+
+.noisli-popup .modal-body-header {
+  margin: 0;
+}
+
+.noisli-popup .green {
+  color: rgb(138,220,179);
+}
+
+.noisli-popup .gray {
+  color: rgb(201, 201, 201);
+}
+
+.noisli-popup .center {
+  text-align: center;
+}
+
+</style>
+

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>潮汐</title>
+
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link async="async" href="css/main.css" media="all" rel="stylesheet" type="text/css" />
+        <link rel="icon" href="pic/favicon.ico" type="image/x­icon"/>
+        <script src="js/main.js" type="text/javascript"></script>
+        <script type="text/javascript" src="https://cdn.bootcss.com/dropbox.js/4.0.13/Dropbox-sdk.js" id="dropboxjs" data-app-key="xkgnjpxcefggxor" async></script>
+
+      <!-- fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css' async>
+        <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' async>
+        <meta charset="utf-8">
+         
+    </head>
+
+    <body>
+        
+            <div class="login-div">
+              <a href="javascript:;"><p id="signup-span" data-element="signup-span">注 册</p></a>
+              <a href="javascript:;"><p id="help-span" data-element="help-span">?</p></a>
+              <a href="javascript:;"><p id="login-span" data-element="login-span">登 陆</p></a>
+            </div>
+       
+
+
+
+  <div class="mute-div">
+    <ul class="mute-header">
+      <li><img alt="Mute" id="sound-button-out" src="https://www.noisli.com/assets/unmute-1714b3612192c66a080e82f0f99f4d3f.png" style="opacity:0.5; filter:alpha(opacity=50);" title="Mute" /></li>
+      <li><img alt="Unmute" id="unmute-button-out" src="https://www.noisli.com/assets/mute-f9ebbc14e938a2984a0278a2540bf7e3.png" style="display:none;opacity:1; filter:alpha(opacity=100);" title="Unmute" /></li>
+    </ul>
+  </div>
+
+    <div class="container">
+      <div class="row" id="noisli-div">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><h1 class="noisli selectable">潮汐</h1></div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
+      </div>
+      <div class="row" id="noisli-mobile-div" data-element="noisli-mobile-div">
+        <div class="col-xs-12 text-center"><h1 class="noisli-mobile">潮汐</h1></div>
+      </div>
+      <div class="login-mobile">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+<span class="login-mobile-span" data-element="signup-span">注册</span><!--
+--><span class="login-mobile-span" data-element="login-span">登陆</span>
+</div>
+</div>
+</div>
+<div class="row" id="slogan-div">
+  <div class="col-lg-1 col-md-1 hidden-sm hidden-xs text-center"></div>
+  <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 text-center">
+    <h2 class="slogan selectable" data-element="headline">与你专注，陪你放松<br class="midle-visible">
+      混合不同的声音，创造完美的环境</h2>
+    </div>
+    <div class="col-lg-1 col-md-1 hidden-sm col-xs-1 text-center"></div>
+  </div>
+
+  <div class="row" id="presets-div">
+    <div class="col-md-2 col-sm-2 hidden-xs"> </div>
+    <div class="col-lg-6 col-lg-offset-1 col-md-8 col-sm-8 col-xs-12 text-center">
+      <ul class="presets-ul">
+        <li class="presets-li"><a href="javascript:;"><span class="presets-span" id="random-button-out">随机</span></a></li>
+        <li class="presets-li"><a href="javascript:;"><span class="presets-span" id="productivity-button-out">专注</span></a></li>
+        <li class="presets-li"><a href="javascript:;"><span class="presets-span" id="relax-button-out">放松</span></a></li>
+      </ul>
+</div>
+
+<div class="col-md-2 col-sm-2 hidden-xs"> </div>
+</div>
+<div class="row" id="players">
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Rain" class="sound sound-left" data-element="sound" data-name="rain" src="https://www.noisli.com/assets/rain-9803d4c7c81e30d30f048b266281d60b.png" title="Rain" />
+    <div class="to-left" data-element="volume_slider" data-element-name="rain_slider">111</div>
+  </div>
+  <div class="col-lg-2 col-md-2 hiddne-sm hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Thunderstorm" class="sound sound-right" data-element="sound" data-name="thunderstorm" src="https://www.noisli.com/assets/thunderstorm-e4d137c115f626f6c2caf0c378b2c927.png" title="Thunderstorm" />
+    <div class="to-left" data-element="volume_slider" data-element-name="thunderstorm_slider">111</div>
+  </div>
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+</div>
+
+<div class="row" id="players">
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Wind" class="sound sound-left" data-element="sound" data-name="wind" src="https://www.noisli.com/assets/wind-5bfcf33faaab320c6ebaae5ff4c8cdbd.png" title="Wind" />
+    <div class="to-left" data-element="volume_slider" data-element-name="wind_slider"></div>
+  </div>
+  <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Forest" class="sound sound-right" data-element="sound" data-name="forest" src="https://www.noisli.com/assets/forest-d6c11662d8931c5d494ada936e7c3df5.png" title="Forest" />
+    <div class="to-left" data-element="volume_slider" data-element-name="forest_slider"></div>
+  </div>
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+</div>
+
+<div class="row" id="players">
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Leaves" class="sound sound-left" data-element="sound" data-name="leaves" src="https://www.noisli.com/assets/leaves-d8154f4a276e4b17bd2b5ad89d661ee4.png" title="Leaves" />
+    <div class="to-left" data-element="volume_slider" data-element-name="leaves_slider"></div>
+  </div>
+  <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Waterstream" class="sound sound-right" data-element="sound" data-name="waterstream" src="https://www.noisli.com/assets/waterstream-062a443a13f5484f49e46b604a942057.png" title="Water stream" />
+    <div class="to-left" data-element="volume_slider" data-element-name="waterstream_slider"></div>
+  </div>
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+</div>
+
+<div class="row" id="players">
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Seaside" class="sound sound-left" data-element="sound" data-name="seaside" src="https://www.noisli.com/assets/seaside-cdf1a934dffab7ef19f336cb431452df.png" title="Seaside" />
+    <div class="to-left" data-element="volume_slider" data-element-name="seaside_slider"></div>
+  </div>
+  <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Water" class="sound sound-right" data-element="sound" data-name="water" src="https://www.noisli.com/assets/water-147e604d6a5d0e2b5c952ac117b135c3.png" title="Water" />
+    <div class="to-left" data-element="volume_slider" data-element-name="water_slider"></div>
+  </div>
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+</div>
+
+<div class="row" id="players">
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Fire" class="sound sound-left" data-element="sound" data-name="fire" src="https://www.noisli.com/assets/fire-e77cc14123c2e330b9ec77cd572939e5.png" title="Fireplace" />
+    <div class="to-left" data-element="volume_slider" data-element-name="fire_slider"></div>
+  </div>
+  <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Summernight" class="sound sound-right" data-element="sound" data-name="summernight" src="https://www.noisli.com/assets/summernight-2cc6dacdacfed1109f50eab4686334bd.png" title="Summer night" />
+    <div class="to-left" data-element="volume_slider" data-element-name="summernight_slider"></div>
+  </div>
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+</div>
+
+<div class="row" id="players">
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Coffee" class="sound sound-left" data-element="sound" data-name="coffee" src="https://www.noisli.com/assets/coffee-694ca06b5cf887557c4ca51b85a77059.png" title="Coffee shop" />
+    <div class="to-left" data-element="volume_slider" data-element-name="coffee_slider"></div>
+  </div>
+  <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Train" class="sound sound-right" data-element="sound" data-name="train" src="https://www.noisli.com/assets/train-ef5005184278564125d92ae226ff4a07.png" title="Train" />
+    <div class="to-left" data-element="volume_slider" data-element-name="train_slider"></div>
+  </div>
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+</div>
+
+<div class="row" id="players">
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Fan" class="sound sound-left" data-element="sound" data-name="fan" src="https://www.noisli.com/assets/fan-bc5b15df194569b2e7da666c77cc1ab9.png" title="Fan" />
+    <div class="to-left" data-element="volume_slider" data-element-name="fan_slider"></div>
+  </div>
+  <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Whitenoise" class="sound sound-right" data-element="sound" data-name="whitenoise" src="https://www.noisli.com/assets/whitenoise-da6534d709bd33cae4cba4ab98d1ba6f.png" title="White noise" />
+    <div class="to-left" data-element="volume_slider" data-element-name="whitenoise_slider"></div>
+  </div>
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+</div>
+
+<div class="row" id="players">
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Pinknoise" class="sound sound-left" data-element="sound" data-name="pinknoise" src="https://www.noisli.com/assets/pinknoise-ef192bcee222a654ac0226a1fbbfdd0e.png" title="Pink noise" />
+    <div class="to-left" data-element="volume_slider" data-element-name="pinknoise_slider"></div>
+  </div>
+  <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
+  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
+    <img alt="Brownnoise" class="sound sound-right" data-element="sound" data-name="brownnoise" src="https://www.noisli.com/assets/brownnoise-af1c56e58b9b9009187bb23b4e4f1668.png" title="Brown noise" />
+    <div class="to-left" data-element="volume_slider" data-element-name="brownnoise_slider"></div>
+  </div>
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-3 col-sm-2 col-xs-1"></div>
+  <div class="col-md-6 col-sm-8 col-xs-12 text-center">
+    <a href="javascript:;" class="button-bottom" id="signup-bottom"><p>Create Account</p></a>
+    <div id="save-group-bottom" style="display:none;">
+      <a href="javascript:;" class="button-bottom" id="save-bottom"><p>Save</p></a>
+      <a href="javascript:;" class="button-bottom" id="share-bottom"><p>Share</p></a>
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-2 col-xs-1"> </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <div class="container">
+
+    <div class="row" id="footer-copyright">
+      <div class="col-md-1 col-sm-1 col-xs-1 text-center"></div>
+      <div class="col-md-10 col-sm-10 col-xs-10 text-center">
+        <div class="footer-copyright-img">
+          <a href="https://itunes.apple.com/us/app/noisli/id862773459?ls=1&mt=8" target="_blank" title="Noisli iOS app available on the App Store"><img alt="Noisli iOS app available on the App Store" src="https://www.noisli.com/assets/app-store-badge-56a1e44db61f0a79bf953146b8b8601e.png" /></a>
+          <a href="https://play.google.com/store/apps/details?id=com.noisli.noisli" target="_blank" title="Noisli Android app available on Google Play"><img alt="Noisli Android app available on Google Play" src="https://www.noisli.com/assets/play-store-badge-81c7ba82223a3b0ca41bed0e7068c52b.png" /></a>
+          <a href="https://chrome.google.com/webstore/detail/noisli/klejemegaoblahjdpcajmpcnjjmkmkkf" target="_blank" title="Noisli Chrome extension available on the Chrome Web Store"><img alt="Noisli Chrome extension available on the Chrome Web Store" src="https://www.noisli.com/assets/chrome-web-store-badge-f37c17d457264186a2c6a4f22162c71e.png" /></a>
+        </div>
+        <p class="footer-copyright-text">&copy; 2014 Noisli Ltd - All Rights Reserved</p>
+      </div>
+      <div class="col-md-1 col-sm-1 col-xs-1 text-center"></div>
+    </div>
+    <div class="row" id="footer-about">
+      <div class="col-md-4 col-sm-4 col-xs-12 text-center no-padding">
+        <p class="footer-about-1 selectable">Noisli is a fantastic background noise and color generator ideal for working and relaxing.</p>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12 text-center no-padding">
+        <p class="footer-about-2 selectable">It includes many high-quality sounds to help you focus while working,
+          relieve anxiety or to just relax while reading or before going to sleep.</p>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12 text-center no-padding">
+          <p class="footer-about-3 selectable">Noisli also provides a color changing background, bringing to you the healthy benefits of the chromotherapy.</p>
+        </div>
+      </div>
+      <div class="row" id="footer-featuredon">
+        <div class="hidden-lg hidden-md col-sm-1 col-xs-1 text-center"></div>
+        <div class="col-lg-12 col-md-12 col-sm-10 col-xs-12 text-center">
+          <div class="footer-featuredon-img">
+            <a  href="http://time.com/3054279/50-best-websites-2014/item/noisli/#3058106/" target="_blank" alt="Noisli featured on Time 50 Best Websites 2014" title="Noisli featured on Time 50 Best Websites 2014"><img alt="Time" id="time-img" src="https://www.noisli.com/assets/time-f95779a10f13b8f2260437c6ac719a6e.png" /></a>
+            <a  href="http://thenextweb.com/apps/2014/05/18/meet-noisli-beautiful-background-noise-generator-will-help-focus/" target="_blank" alt="Noisli featured on The Next Web" title="Noisli featured on The Next Web"><img alt="Thenextweb" id="thenextweb-img" src="https://www.noisli.com/assets/thenextweb-a049c615b136570f99c86d62138f35f3.png" /></a>
+            <a href="http://www.fastcompany.com/3036631/the-future-of-work/12-tech-tools-productivity-experts-cant-live-without" target="_blank" alt="Noisli featured on FastCompany" title="Noisli featured on FastCompany"><img alt="Fastcompany" id="fastcompany-img" src="https://www.noisli.com/assets/fastcompany-c78f8286913a071c96e0374345023a61.png" /></a>
+            <p class="margin-img"></p>
+            <a href="http://www.cnet.com/news/with-noisli-you-type-to-the-sounds-of-rain-trains-and-waves/" target="_blank" alt="Noisli featured on CNET" title="Noisli featured on CNET"><img alt="Cnet" id="cnet-img" src="https://www.noisli.com/assets/cnet-db2c4fe1f802da01ad5a2821c234a34e.png" /></a>
+            <a href="http://lifehacker.com/noisli-generates-background-sounds-to-keep-your-creativ-1442974498" target="_blank" alt="Noisli featured on LifeHacker" title="Noisli featured on LifeHacker"><img alt="Lifehacker" id="lifehacker-img" src="https://www.noisli.com/assets/lifehacker-22ec948677bae49eb7a299d65845c7e8.png" /></a>
+          </div>
+        </div>
+        <div class="hidden-lg hidden-md col-sm-1 col-xs-1 text-center"></div>
+      </div>
+      <div class="row" id="footer-researches">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center no-padding">
+          <p class="footer-researches-text-1 selectable"><strong>THE WALL STREET JOURNAL</strong><br><br>&quot;A moderate level of noise the equivalent of the background buzz of conversation prompts more-creative thought&quot;</p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center no-padding">
+          <p class="footer-researches-text-2 selectable"><strong>LIFEHACKER</strong><br><br>&quot;It's a strange thing, but sometimes being given a smaller space, more people nearby, and less convenience helps workers get things done at a coffee shop, restaurant, or other spots.&quot;</p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center no-padding">
+          <p class="footer-researches-text-3 selectable"><strong>THE NEW YORK TIMES</strong><br><br>&quot;Switching the color of your computer’s background screen to blue enhances performance on creative tasks, for example, while making it red helps with detail-oriented tasks.&quot;</p>
+        </div>
+      </div>
+      <div class="row" id="footer-newsletter">
+        <div class="hidden-lg hidden-md hidden-sm col-xs-1 text-center"></div>
+        <div class="col-md-12 col-sm-12 col-xs-10 text-center">
+          <div id="mc_embed_signup">
+            <p class="footer-newsletter-title">SIGN UP TO RECEIVE NOISLI PRODUCTIVITY HACKS</p>
+            <form action="//noisli.us3.list-manage.com/subscribe/post?u=7049c39b7824be66fd83ca954&amp;id=0cf2010dec" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+              <div id="mc_embed_signup_scroll">
+                <div class="mc-field-group">
+                  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your e-mail address" autocomplete="off">
+                  <input type="submit" value="Sign up" name="subscribe" id="mc-embedded-subscribe" class="button">
+                </div>
+                <div id="mce-responses" class="clear">
+                  <div class="response" id="mce-error-response" style="display:none"></div>
+                  <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;"><input type="text" name="b_7049c39b7824be66fd83ca954_0cf2010dec" tabindex="-1" value=""></div>
+                <div class="clear"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="hidden-lg hidden-md hidden-sm col-xs-1 text-center"></div>
+      </div>
+      <div class="row" id="footer-banners">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <div class="footer-logo-welcome"  data-element="footer-logo-welcome" id="desktop-footer">
+    <div class="container">
+      <div class="row" id="footer-logo-welcome-div">
+        <div class="hidden-lg hidden-md hidden-sm col-xs-1 text-center"></div>
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-10" id="footer-logo-welcome-noisli">
+          <a href="https://www.noisli.com">Noisli</a>
+        </div>
+        <div class="hidden-lg hidden-md hidden-sm col-xs-1 text-center"></div>
+        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12" id="footer-logo-welcome-menu">
+          <ul style="margin-bottom: 0px">
+            <li><a target='_blank' href="/about">Imprint</a></li>
+            <li><a target='_blank' href="/apps">Apps</a></li>
+            <li><a target='_blank' href="https://angel.co/noisli/jobs">Jobs</a></li>
+            <li><a target='_blank' href="http://blog.noisli.com">Blog</a></li>
+            <li><a target='_blank' href="/features">Features</a></li>
+            <li><a target='_blank' href="/terms">Terms & Privacy</a></li>
+            <li>
+              <script type="text/javascript">
+                //<![CDATA[
+                <!--
+                  var x="function f(x){var i,o=\"\",ol=x.length,l=ol;while(x.charCodeAt(l/13)!" +
+                    "=52){try{x+=x;l+=l;}catch(e){}}for(i=l-1;i>=0;i--){o+=x.charAt(i);}return o" +
+                ".substr(0,ol);}f(\")81,\\\"BHL_WJ220\\\\]M400\\\\410\\\\710\\\\130\\\\200\\" +
+                "\\400\\\\)WJ;310\\\\n\\\\700\\\\M310\\\\r\\\\320\\\\613430\\\\465=?l: ?;0=m" +
+                "220\\\\p*.8!h`-+%/ 630\\\\g200\\\\JX[I[M030\\\\Vn\\\\720\\\\330\\\\_CH_@URr" +
+                "\\\\Uqxvltzw\\\"(f};o nruter};))++y(^)i(tAedoCrahc.x(edoCrahCmorf.gnirtS=+o" +
+                  ";721=%y;++y)81<i(fi{)++i;l<i;0=i(rof;htgnel.x=l,\\\"\\\"=o,i rav{)y,x(f noi" +
+                  "tcnuf\")"                                                                    ;
+                while(x=eval(x));
+                //-->
+                //]]>
+              </script>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="footer-logo-welcome"  data-element="footer-logo-welcome" id="mobile-footer">
+<div class="container">
+  <div class="row" id="footer-logo-welcome-div">
+    <div class="hidden-lg hidden-md hidden-sm col-xs-1 text-center"></div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-10" id="footer-logo-welcome-noisli">
+      <p><a href="https://www.noisli.com">Noisli</a></p>
+    </div>
+    <div class="hidden-lg hidden-md hidden-sm col-xs-1 text-center"></div>
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" id="footer-logo-welcome-menu">
+      <p class="footer-mobile-p">
+        <a id="footer-link-a" target='_blank' href="/about">Imprint</a>
+        <a id="footer-link-b" target='_blank' href="/features">Features</a>
+      </p>
+      <p class="footer-mobile-p">
+        <a id="footer-link-c" target='_blank' href="https://angel.co/noisli/jobs">Jobs</a>
+        <a id="footer-link-d" target='_blank' href="/terms">Terms & Privacy</a>
+      </p>
+      <p class="footer-mobile-p" style="margin-bottom: 50px;">
+        <a id="footer-link-e" target='_blank' href="https://blog.noisli.com">Blog</a>
+        <a id="footer-link-f" target='_blank' href="mailto:hello@noisli.com">Contact</a>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+
+  <!-- Data element must load -->
+  <div class="modal-login" data-element="modal-save-combo" id="modal-save-combo" style="display:none;">
+	<div class="container">
+		<div class="row" id="forgot-div">
+			<div class="col-lg-3 col-md-3 col-sm-2 col-xs-1"></div>
+			<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+				<div class="row alert-modal" id="modal-save-combo-modal">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img alt="Close" class="close_png_reset" src="https://www.noisli.com/assets/Close-9b513fe5b25611c2e10fecf57de0ba5f.png" /></button>
+					<div class="hidden-lg hidden-md hidden-sm hidden-xs"></div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 selectable">
+						
+						<p class="modal-head popup-header" id="signup-success">
+							Want to Save it or Create<br>your own Combinations?
+						</p>
+						<div class="popup-column">
+							<p class="popup-text popup-gray-text"><span class="popup-green-text">Create your own account</span> (yes, it’s FREE) in order to Make, Save and Share your own Combinations.<br><br>Discover our <span class="popup-green-text">Timer</span> for productivity sessions and the <span class="popup-green-text">Text Editor</span> for distraction-free writing.</p>
+						</div>
+						
+						<div class="popup-actions">
+							<input type="submit" value="Create My Account" class="popup-main-action" id="save-combo-signup">
+							<button class="popup-no-thanks">No thanks</button>
+						</div>
+
+						<p class="popup-ps other-size-column">
+							P.S. It is completely Free. More about Noisli Features <a class="popup-link" target='_blank' href="/features">here</a>.
+						</p>
+						<p class="popup-ps xs-size-column">
+							P.S. It is completely Free.<br> More about Noisli Features <a class="popup-link" target='_blank' href="/features">here</a>.
+						</p>
+						
+					</div>
+					<div class="hidden-lg hidden-md hidden-sm hidden-xs"></div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-2 col-xs-1"></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+    </body>
+</html>
