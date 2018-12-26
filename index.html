@@ -14,23 +14,871 @@
         <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' async>
         <meta charset="utf-8">
          
-    </head>
 
-    <body>
+          <style>
         
-            <div class="login-div">
-              <a href="javascript:;"><p id="signup-span" data-element="signup-span">注 册</p></a>
-              <a href="javascript:;"><p id="help-span" data-element="help-span">?</p></a>
-              <a href="javascript:;"><p id="login-span" data-element="login-span">登 陆</p></a>
-            </div>
+
+
+    .container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* MODAL SIGNUP */
+.modal-signup{
+    position: fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    background-color: rgba(29,29,27,0.6);
+    z-index: 1000;
+}
+#signup-modal {
+    margin: 80px 0;
+    height: 100%;
+    background-color: rgb(249,249,249);
+    border-radius: 20px;
+    text-align: center;
+
+}
+p.signup-modal-title {
+    font-size: 18px;
+    color: rgb(138,220,179);
+    margin-top: 30px;
+    font-weight: 500;
+}
+p.signup-modal-subtitle {
+    font-size: 15px;
+    color: rgb(201,201,201);
+    margin-top: -5px;
+    font-weight: 400;
+}
+p.signup-modal-subtitle a {
+    color: rgb(138,220,179);
+}
+p.signup-modal-sub {
+    font-size: 13px;
+    color: rgb(201,201,201);
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-weight: 400;
+    text-align: left;
+}
+p.signup-modal-sub a {
+    color: rgb(138,220,179);
+}
+#signup-modal {
+    min-height: 550px;
+    max-height: 550px;
+    text-align: center;
+    margin-left: 0 !important;
+}
+
+#signup-modal form #signup-modal-input-email, form #email {
+    margin: 50px 0 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+#signup-modal form #signup-modal-input-email, form #user_email, form #email {
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid rgb(255,255,255);
+    background-color: rgb(255,255,255);
+    -webkit-border-radius: 17.5px;
+    -moz-border-radius: 17.5px;
+    border-radius: 17.5px;
+    height: 35px;
+    width: 355px;
+    padding: 0 20px;
+    margin: 40px 0 10px;
+    color: rgb(138,220,179);
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#combo-name, #combo-rename {
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid rgb(255,255,255);
+    background-color: rgb(255,255,255);
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    height: 35px;
+    width: 355px;
+    padding: 0 10px;
+    margin: 40px 0 10px;
+    color: rgb(138,220,179);
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#signup-modal form #signup-modal-input-email:focus, #combo-name:focus, #combo-rename, form #user_email:focus, form #email:focus {
+    outline:none;
+    border: 1px rgb(138,220,179) solid;
+}
+
+#signup-modal form #signup-modal-input-password, form #password {
+    margin: -4px 0 0px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+#change_pass_pass {
+    margin-top: 5px !important;
+}
+
+#change_pass_pass_confirmation {
+    margin-top: -5px !important;
+}
+#signup-modal form #signup-modal-input-password, #change_pass_pass_confirmation, #change_pass_pass,form #password {
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid rgb(255,255,255);
+    background-color: rgb(255,255,255);
+    -webkit-border-radius: 17.5px;
+    -moz-border-radius: 17.5px;
+    border-radius: 25px;
+    height: 35px;
+    width: 355px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin: 10px 0 0px;
+    color: rgb(138,220,179);
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#signup-modal form #signup-modal-input-password-2 {
+    font-size: 15px;
+    font-weight: 400;
+    border: 1px solid rgb(255,255,255);
+    background-color: rgb(255,255,255);
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    height: 35px;
+    width: 100%;
+    padding: 0 10px;
+    margin: 10px 0 0px;
+    color: rgb(138,220,179);
+}
+#signup-modal form #signup-modal-input-password:focus, #change_pass_pass_confirmation:focus, #change_pass_pass:focus,form #password:focus {
+    outline:none;
+    border: 1px rgb(138,220,179) solid;
+}
+
+#signup-modal form #signup-modal-input-submit {
+    font-weight: 700;
+    width: 160px;
+    height: 35px;
+    -webkit-border-radius: 17.5px;
+    -moz-border-radius: 17.5px;
+    border-radius: 17.5px;
+}
+
+#change_pass_button {
+    margin-top: 35px !important;
+}
+
+#signup-modal form #signup-modal-input-submit, #change_pass_button  {
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    background-color: rgb(138,220,179);
+    -webkit-border-radius: 17.5px;
+    -moz-border-radius: 17.5px;
+    border-radius: 17.5px;
+    width: 160px;
+    height: 35px;
+    padding: 0 10px;
+    margin: 30px 0 0px;
+    color: rgb(255,255,255);
+}
+
+#signup-modal form #signup-modal-input-submit:focus, #change_pass_button:focus {
+    outline:none;
+    border: none;
+}
+#signup-modal input#signup-fb, #login-fb {
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    background-color: rgb(59,89,152);
+    -webkit-border-radius: 17.5px;
+    -moz-border-radius: 17.5px;
+    border-radius: 17.5px;
+    height: 35px;
+    width: 160px;
+    padding: 0 10px;
+    margin: 60px 0 0px;
+    color: rgb(255,255,255);
+}
+#signup-modal input#signup-fb:focus {
+    outline:none;
+    border: none;
+}
+#signup-modal input#signup-g {
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    background-color: rgb(223,74,50);
+    -webkit-border-radius: 17.5px;
+    -moz-border-radius: 17.5px;
+    border-radius: 17.5px;
+    height: 35px;
+    width: 160px;
+    padding: 0 10px;
+
+    margin: 0px 0 0px;
+    color: rgb(255,255,255);
+}
+
+
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+<script>
+    function Show1(){
+        document.getElementById('modal-signup').classList.remove('hide');
+    }
+    function Hide1(){
+        document.getElementById('modal-signup').classList.add('hide');
+    }
+
+
+    function Show2(){
+        document.getElementById('modal-login').classList.remove('hide');
+    }
+    function Hide2(){
+        document.getElementById('modal-login').classList.add('hide');
+    }
+
+    function tlogIn(){
+        Hide1();
+        Show2();
+    }
+    function logIn(){
+        Hide2();
+        document.getElementById('login_left').classList.add('hide');
+        document.getElementById('logined_left').classList.remove('hide');
+    }
+</script>
+
+<script type="text/javascript">
+function setCookie(){
+  
+  var d = new Date();
+  var u = document.getElementById("signup-modal-input-email").value;
+  var p = document.getElementById("signup-modal-input-password").value;
+ 
+    if(u==""||p=="")
+    {
+      alert("请补全资料");
+    }
+    else {
+      
+      alert(u+" "+p);
+      d.setTime(d.getTime()+(30*24*60*60*1000));
+      var expires = "expires="+d.toGMTString();
+      document.cookie = u+"="+p+"; "+expires;
+      alert("注册成功");
+      document.getElementById("signup-modal-input-email").value="";
+      document.getElementById("signup-modal-input-password").value="";
+      tlogIn();
+    }
+
+
+}
+function getCookie(){
+
+  var u = document.getElementById("email").value+"="+document.getElementById("password").value;
+
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++) {
+    var c = ca[i].trim();
+    if (c.indexOf(u)==0)
+
+    { 
+      var tname = c.split("=");
+      alert("欢迎回来"+tname[0]);logIn(); return 0; }
+  }
+  alert("验证失败");
+}
+
+function checkCookie(){
+  var ca = document.cookie.split(';');
+  i=ca.length-1;
+  if(i == -1) return 0;
+    var c = ca[i].trim();
+    if (c!=null)
+
+    { 
+      var tname = c.split("=");
+      alert("欢迎回"+tname[0]+"!"); return 0; }
+  
+
+}
+
+</script>
+
+ <audio id ="forest_m" name = "mp3" autoplay loop>
+    <source src="sound/9806.mp3"  >
+    </audio> 
+    <audio id ="rain_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/rain/rain.mp3"  >
+    </audio> 
+    <audio id ="thunderstorm_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/thunderstorm/thunderstorm.mp3"  >
+    </audio> 
+    <audio id ="wind_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/wind/wind.mp3"  >
+    </audio> 
+    <audio id ="leaves_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/leaves/leaves.mp3"  >
+    </audio> 
+    <audio id ="waterstream_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/waterstream/waterstream.mp3"  >
+    </audio> 
+    <audio id ="seaside_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/seaside/seaside.mp3"  >
+    </audio> 
+    <audio id ="water_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/water/water.mp3"  >
+    </audio> 
+    <audio id ="fire_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/fire/fire.mp3"  >
+    </audio> 
+    <audio id ="summernight_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/summernight/summernight.mp3"  >
+    </audio> 
+    <audio id ="coffee_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/coffee/coffee.mp3"  >
+    </audio> 
+    <audio id ="train_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/train/train.mp3"  >
+    </audio> 
+    <audio id ="fan_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/fan/fan.mp3"  >
+    </audio> 
+        <audio id ="whitenoise_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/whitenoise/whitenoise.mp3"  >
+    </audio> 
+        <audio id ="pinknoise_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/pinknoise/pinknoise.mp3"  >
+    </audio> 
+        <audio id ="brownnoise_m" name = "mp3" autoplay loop>
+    <source src="https://cdn.noisli.com/mp3/brownnoise/brownnoise.mp3"  >
+    </audio> 
+        <audio id ="r1_m" name = "mp3" autoplay loop>
+    <source src=""  >
+    </audio> 
+    <audio id ="r2_m" name = "mp3" autoplay loop>
+    <source src=""  >
+    </audio> 
+    <audio id ="r3_m" name = "mp3" autoplay loop>
+    <source src=""  >
+    </audio> 
+
+    
+    
+
+    <script type="text/javascript">
+    var mp3 =
+             {"rain":"https://cdn.noisli.com/mp3/rain/rain.mp3",
+              "thunderstorm":"https://cdn.noisli.com/mp3/thunderstorm/thunderstorm.mp3",
+              "wind":"https://cdn.noisli.com/mp3/wind/wind.mp3",
+              "forest":"https://cdn.noisli.com/mp3/forest/forest.mp3",
+              "leaves":"https://cdn.noisli.com/mp3/leaves/leaves.mp3",
+              "waterstream":"https://cdn.noisli.com/mp3/waterstream/waterstream.mp3",
+              "seaside":"https://cdn.noisli.com/mp3/seaside/seaside.mp3",
+              "water":"https://cdn.noisli.com/mp3/water/water.mp3",
+              "fire":"https://cdn.noisli.com/mp3/fire/fire.mp3",
+              "summernight":"https://cdn.noisli.com/mp3/summernight/summernight.mp3",
+              "coffee":"https://cdn.noisli.com/mp3/coffee/coffee.mp3",
+              "train":"https://cdn.noisli.com/mp3/train/train.mp3",
+              "fan":"https://cdn.noisli.com/mp3/fan/fan.mp3",
+              "whitenoise":"https://cdn.noisli.com/mp3/whitenoise/whitenoise.mp3",
+              "pinknoise":"https://cdn.noisli.com/mp3/pinknoise/pinknoise.mp3",
+              "brownnoise":"https://cdn.noisli.com/mp3/brownnoise/brownnoise.mp3"
+            }
+
+
+    </script>
+
+
+
+  
+
+<div class="modal-signup  hide" id="modal-signup"> 
+   <div class="container"> 
+    <div class="row" id="signup-div"> 
+    <div class="col-lg-3 col-md-3 col-sm-2 hidden-xs"></div> 
+     <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 center"> 
+      <div class="row" id="signup-modal"> 
+       <button type="button" class="close" data-dismiss="modal" onclick="Hide1()"><img alt="Close" class="close_png_reset" src="https://www.noisli.com/assets/Close-9b513fe5b25611c2e10fecf57de0ba5f.png" /></button> 
+       <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div> 
+       <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"> 
+        <p class="margin-after-close-button"></p> 
+        <div> 
+         <p class="signup-modal-title">Sign Up, it’s Free :)</p> 
+         <p class="signup-modal-subtitle">If you already have a Noisli profile, <a id="login-link" href="javascript:tlogIn();">log in.</a></p> 
+         <form accept-charset="UTF-8" action="/users" class="new_user" data-remote="true" data-type="json" id="sign_up_user" method="post" novalidate="novalidate">
+          <div style="margin:0;padding:0;display:inline">
+           <input name="utf8" type="hidden" value="true" />
+           <input name="authenticity_token" type="hidden" value="+YtKFiJHzytSePPgZuH0KAX+MHjJ2ucG35KIa8m1aPk=" />
+          </div> 
+          <div class="form-group"> 
+           <input autocomplete="off" autofocus="autofocus" class="required email email-selector error" id="signup-modal-input-email" name="user[email]" placeholder="Email address" size="30" type="email" value="" /> 
+           
+          </div> 
+          <div class="form-group"> 
+           <input autocomplete="off" class="required email password-selector error" id="signup-modal-input-password" name="user[password]" placeholder="Password" size="30" type="password" /> 
+           <span id="short-password-alert-sign-up" style="display:none;">minimum 8 characters</span> 
+          </div> 
+        
+          <button  id="signup-modal-input-submit" type="button"  onclick="setCookie()">Sign up, it's Free</button> 
+   
+         </form> 
+         <input id="signup-fb" type="submit" value="Sign up with Facebook" /> 
+         <p></p> 
+         <input id="signup-g" type="submit" value="Sign up with Google" /> 
+         
+        </div> 
+       </div> 
+       <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div> 
+      </div> 
+     </div> 
+     <div class="col-lg-3 col-md-3 col-sm-2 hidden-xs"></div> 
+    </div> 
+   </div> 
+  </div>  
+
+
+
+<div class="modal-signup  hide" id="modal-login"> 
+   <div class="container"> 
+    <div class="row" id="signup-div"> 
+    <div class="col-lg-3 col-md-3 col-sm-2 hidden-xs"></div> 
+     <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 center"> 
+      <div class="row" id="signup-modal"> 
+       <button type="button" class="close" data-dismiss="modal" onclick="Hide2()"><img alt="Close" class="close_png_reset" src="https://www.noisli.com/assets/Close-9b513fe5b25611c2e10fecf57de0ba5f.png" /></button> 
+       <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div> 
+       <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"> 
+        <p class="margin-after-close-button"></p> 
+        <div> 
+         <p class="signup-modal-title">Log In :)</p> 
        
+         <form accept-charset="UTF-8" action="/users" class="new_user" data-remote="true" data-type="json" id="sign_up_user" method="post" novalidate="novalidate">
+          <div style="margin:0;padding:0;display:inline">
+           <input name="utf8" type="hidden" value="true" />
+           <input name="authenticity_token" type="hidden" value="+YtKFiJHzytSePPgZuH0KAX+MHjJ2ucG35KIa8m1aPk=" />
+          </div> 
+          <div class="form-group"> 
+           <input autocomplete="off" autofocus="autofocus" class="required email email-selector error" id="email" name="user[email]" placeholder="Email address" size="30" type="email" value="" /> 
+           
+          </div> 
+          <div class="form-group"> 
+           <input autocomplete="off" class="required email password-selector error" id="password" name="user[password]" placeholder="Password" size="30" type="password" /> 
+        
+          </div> 
+          <button  id="signup-modal-input-submit" type="button"  onclick="getCookie()">Log In</button> 
+         </form> 
+         <input id="signup-fb" type="submit" value="Log In with Facebook" /> 
+         <p></p> 
+         <input id="signup-g" type="submit" value="Log In with Google" /> 
+         
+        </div> 
+       </div> 
+       <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div> 
+      </div> 
+     </div> 
+     <div class="col-lg-3 col-md-3 col-sm-2 hidden-xs"></div> 
+    </div> 
+   </div> 
+  </div>  
+
+
+        
+            <div class="login-div" id="login_left">
+              <a href="javascript:Show1();"><p id="signup-span" data-element="signup-span">注 册</p></a>
+              <a href="javascript:;"><p id="help-span" data-element="help-span">?</p></a>
+              <a href="javascript:Show2();"><p id="login-span" data-element="login-span">登 陆</p></a>
+            </div>
+            <div class="login-div hide" id="logined_left">
+              <a href="javascript:Show1();"><p id="signup-span" data-element="signup-span">爱 好</p></a>
+           
+              <a href="javascript:Show2();"><p id="login-span" data-element="login-span">退 出</p></a>
+            </div>
+
+
+
+
+
+
+    
+
+
+	
+
+
+       <script type="text/javascript">
+      
+            	function mute1(){
+
+            		document.getElementById("sound-button-out").style.display = "none";
+            		document.getElementById("unmute-button-out").style.display = "inline";
+                var allmp3 = document.getElementsByName("mp3");
+                for (var i = allmp3.length - 1; i >= 0; i--) {
+                  allmp3[i].pause();
+                }
+            		
+            	}
+   
+            	function mute2(){
+            		document.getElementById("sound-button-out").style.display = "inline";
+            		document.getElementById("unmute-button-out").style.display = "none";
+            	}
+       
+
+            </script>
+
+            <script type="text/javascript">
+            	var rain_playing = 0;
+              var thunderstorm_playing = 0;
+              var wind_playing = 0;
+              var forest_playing = 0;
+              var leaves_playing = 0;
+              var waterstream_playing = 0;
+              var seaside_playing = 0;
+              var water_playing = 0;
+              var fire_playing = 0;
+              var summernight_playing = 0;
+              var train_playing = 0;
+              var fan_playing = 0;
+              var whitenoise_playing = 0;
+              var pinknoise_playing = 0;
+              var brownnoise_playing = 0;
+              var coffee_playing = 0;
+
+		        function rainPlay() {
+              var myAuto0 = document.getElementById('rain_m');
+		        	if(rain_playing)
+		        	{
+               
+						
+		            	myAuto0.pause();		
+		            	rain_playing = 0;        		
+		        	}
+		        	else
+		        	{
+		        	
+		            	myAuto0.play();
+		            	rain_playing = 1;
+		        	}		           
+		        }
+            function thunderstormPlay() {
+              var myAuto1 = document.getElementById('thunderstorm_m');
+              if(thunderstorm_playing)
+              {
+          
+            
+                  myAuto1.pause();   
+                  thunderstorm_playing = 0;           
+              }
+              else
+              {
+               
+                  myAuto1.play();
+                  thunderstorm_playing = 1;
+              }              
+            }
+          
+            function windPlay() {
+             var myAuto2 = document.getElementById('wind_m');
+              if(wind_playing)
+              {
+                        
+                  myAuto2.pause();   
+                  wind_playing = 0;           
+              }
+              else
+              {
+                  myAuto2.play();
+                  wind_playing = 1;
+              }              
+            }
+            function forestPlay() {
+              var myAuto3 = document.getElementById('forest_m');
+              if(forest_playing)
+              {
+              
+            
+                  myAuto3.pause();   
+                  forest_playing = 0;           
+              }
+              else
+              {
+                
+                  myAuto3.play();
+                  forest_playing = 1;
+              }              
+            }
+            function leavesPlay() {
+              var myAuto4 = document.getElementById('leaves_m');
+              if(leaves_playing)
+              {
+              
+          
+                  myAuto4.pause();   
+                  leaves_playing = 0;           
+              }
+              else
+              {
+               
+                  myAuto4.play();
+                  leaves_playing = 1;
+              }              
+            }
+            function waterstreamPlay() {
+              var myAuto5 = document.getElementById('waterstream_m');
+              if(waterstream_playing)
+              {
+              
+       
+                  myAuto5.pause();   
+                  waterstream_playing = 0;           
+              }
+              else
+              {
+             
+                  myAuto5.play();
+                  waterstream_playing = 1;
+              }              
+            }
+            function seasidePlay() {
+              var myAuto6 = document.getElementById('seaside_m');
+              if(seaside_playing)
+              {
+              
+        
+                  myAuto6.pause();   
+                  seaside_playing = 0;           
+              }
+              else
+              {
+      
+                  myAuto6.play();
+                  seaside_playing = 1;
+              }              
+            }
+            function waterPlay() {
+              var myAuto7 = document.getElementById('water_m');
+              if(water_playing)
+              {
+        
+                  myAuto7.pause();   
+                  water_playing = 0;           
+              }
+              else
+              {
+        
+                  myAuto7.play();
+                  water_playing = 1;
+              }              
+            }
+            function firePlay() {
+              var myAuto8 = document.getElementById('fire_m');
+              if(fire_playing)
+              {
+          
+                  myAuto8.pause();   
+                  fire_playing = 0;           
+              }
+              else
+              {
+      
+                  myAuto8.play();
+                  fire_playing = 1;
+              }              
+            }
+            function summernightPlay() {
+              var myAuto9 = document.getElementById('summernight_m');
+              if(summernight_playing)
+              {
+            
+       
+                  myAuto9.pause();   
+                  summernight_playing = 0;           
+              }
+              else
+              {
+  
+                  myAuto9.play();
+                  summernight_playing = 1;
+              }              
+            }
+            function coffeePlay() {
+              var myAuto10 = document.getElementById('coffee_m');
+              if(coffee_playing)
+              {
+              
+
+                  myAuto10.pause();   
+                  coffee_playing = 0;           
+              }
+              else
+              {
+       
+                  myAuto10.play();
+                  coffee_playing = 1;
+              }              
+            }
+            function trainPlay() {
+              var myAuto11 = document.getElementById('train_m');
+              if(train_playing)
+              {
+                 
+                  myAuto11.pause();   
+                  train_playing = 0;           
+              }
+              else
+              {
+                
+                  myAuto11.play();
+                  train_playing = 1;
+              }              
+            }
+            function fanPlay() {
+              var myAuto12 = document.getElementById('fan_m');
+              if(fan_playing)
+              {
+                  
+                  myAuto12.pause();   
+                  fan_playing = 0;           
+              }
+              else
+              {
+                
+                  myAuto12.play();
+                  fan_playing = 1;
+              }              
+            }
+            function whitenoisePlay() {
+              var myAuto13 = document.getElementById('whitenoise_m');
+              if(whitenoise_playing)
+              {
+           
+       
+                  myAuto13.pause();   
+                  whitenoise_playing = 0;           
+              }
+              else
+              {
+             
+                  myAuto13.play();
+                  whitenoise_playing = 1;
+              }              
+            }
+            function pinknoisePlay() {
+              var myAuto14 = document.getElementById('pinknoise_m');
+              if( pinknoise_playing)
+              {
+           
+         
+                  myAuto14.pause();   
+                  pinknoise_playing = 0;           
+              }
+              else
+              {
+              
+                  myAuto14.play();
+                  pinknoise_playing = 1;
+              }              
+            }
+            function brownnoisePlay() {
+              var myAuto15 = document.getElementById('brownnoise_m');
+              if(brownnoise_playing)
+              {
+          
+                
+                  myAuto15.pause();   
+                  brownnoise_playing = 0;           
+              }
+              else
+              {
+             
+                  myAuto15.play();
+                  brownnoise_playing = 1;
+              }              
+            }
+            var myAuto16 = 0;
+            function rPlay() {
+              var rt = Math.floor(Math.random()*16);
+              document.getElementById('r1_m').src = mp3[i];
+              var myAuto16 = document.getElementById('r1_m');
+              for (var i = allmp3.length - 1; i >= 0; i--) {
+                  allmp3[i].pause();
+                }
+              if(brownnoise_playing)
+              {
+          
+                
+                  myAuto16.pause();   
+                  brownnoise_playing = 0;           
+              }
+              else
+              {
+             
+                  myAuto15.play();
+                  brownnoise_playing = 1;
+              }              
+            }
+            }
+         
+
+            </script>
+	
+
+
+
+
+ 
+
+
+
 
 
 
   <div class="mute-div">
     <ul class="mute-header">
-      <li><img alt="Mute" id="sound-button-out" src="https://www.noisli.com/assets/unmute-1714b3612192c66a080e82f0f99f4d3f.png" style="opacity:0.5; filter:alpha(opacity=50);" title="Mute" /></li>
-      <li><img alt="Unmute" id="unmute-button-out" src="https://www.noisli.com/assets/mute-f9ebbc14e938a2984a0278a2540bf7e3.png" style="display:none;opacity:1; filter:alpha(opacity=100);" title="Unmute" /></li>
+      <li><img alt="Mute" id="sound-button-out" src="https://www.noisli.com/assets/unmute-1714b3612192c66a080e82f0f99f4d3f.png" onclick = "mute1()" style="opacity:0.5; filter:alpha(opacity=50);" title="Mute" /></li>
+      <li><img alt="Unmute" id="unmute-button-out" src="https://www.noisli.com/assets/mute-f9ebbc14e938a2984a0278a2540bf7e3.png"  onclick = "mute2()"  style="display:none;opacity:1; filter:alpha(opacity=100);" title="Unmute" /></li>
     </ul>
   </div>
 
@@ -64,7 +912,7 @@
     <div class="col-md-2 col-sm-2 hidden-xs"> </div>
     <div class="col-lg-6 col-lg-offset-1 col-md-8 col-sm-8 col-xs-12 text-center">
       <ul class="presets-ul">
-        <li class="presets-li"><a href="javascript:;"><span class="presets-span" id="random-button-out">随机</span></a></li>
+        <li class="presets-li"><a href="javascript:rPlay();"><span class="presets-span" id="random-button-out">随机</span></a></li>
         <li class="presets-li"><a href="javascript:;"><span class="presets-span" id="productivity-button-out">专注</span></a></li>
         <li class="presets-li"><a href="javascript:;"><span class="presets-span" id="relax-button-out">放松</span></a></li>
       </ul>
@@ -75,13 +923,15 @@
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Rain" class="sound sound-left" data-element="sound" data-name="rain" src="https://www.noisli.com/assets/rain-9803d4c7c81e30d30f048b266281d60b.png" title="Rain" />
-    <div class="to-left" data-element="volume_slider" data-element-name="rain_slider">111</div>
+    <img alt="Rain" class="sound sound-left" data-element="sound" data-name="rain" src="https://www.noisli.com/assets/rain-9803d4c7c81e30d30f048b266281d60b.png" onclick = "rainPlay()" title="Rain" />
+    <div class="to-left" data-element="volume_slider" data-element-name="rain_slider">
+	
+    </div>
   </div>
   <div class="col-lg-2 col-md-2 hiddne-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Thunderstorm" class="sound sound-right" data-element="sound" data-name="thunderstorm" src="https://www.noisli.com/assets/thunderstorm-e4d137c115f626f6c2caf0c378b2c927.png" title="Thunderstorm" />
-    <div class="to-left" data-element="volume_slider" data-element-name="thunderstorm_slider">111</div>
+    <img alt="Thunderstorm" class="sound sound-right" data-element="sound" data-name="thunderstorm" src="https://www.noisli.com/assets/thunderstorm-e4d137c115f626f6c2caf0c378b2c927.png" onclick = "thunderstormPlay()" title="Thunderstorm" />
+    <div class="to-left" data-element="volume_slider" data-element-name="thunderstorm_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
 </div>
@@ -89,13 +939,15 @@
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Wind" class="sound sound-left" data-element="sound" data-name="wind" src="https://www.noisli.com/assets/wind-5bfcf33faaab320c6ebaae5ff4c8cdbd.png" title="Wind" />
+    <img alt="Wind" class="sound sound-left" data-element="sound" data-name="wind" src="https://www.noisli.com/assets/wind-5bfcf33faaab320c6ebaae5ff4c8cdbd.png" onclick = "windPlay()" title="Wind" />
     <div class="to-left" data-element="volume_slider" data-element-name="wind_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Forest" class="sound sound-right" data-element="sound" data-name="forest" src="https://www.noisli.com/assets/forest-d6c11662d8931c5d494ada936e7c3df5.png" title="Forest" />
-    <div class="to-left" data-element="volume_slider" data-element-name="forest_slider"></div>
+    <img alt="Forest" class="sound sound-right" data-element="sound" data-name="forest" src="https://www.noisli.com/assets/forest-d6c11662d8931c5d494ada936e7c3df5.png" onclick = "forestPlay()" title="Forest" />
+    <div class="to-left" data-element="volume_slider" data-element-name="forest_slider">
+
+    </div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
 </div>
@@ -103,12 +955,12 @@
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Leaves" class="sound sound-left" data-element="sound" data-name="leaves" src="https://www.noisli.com/assets/leaves-d8154f4a276e4b17bd2b5ad89d661ee4.png" title="Leaves" />
+    <img alt="Leaves" class="sound sound-left" data-element="sound" data-name="leaves" src="https://www.noisli.com/assets/leaves-d8154f4a276e4b17bd2b5ad89d661ee4.png" onclick = "leavesPlay()" title="Leaves" />
     <div class="to-left" data-element="volume_slider" data-element-name="leaves_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Waterstream" class="sound sound-right" data-element="sound" data-name="waterstream" src="https://www.noisli.com/assets/waterstream-062a443a13f5484f49e46b604a942057.png" title="Water stream" />
+    <img alt="Waterstream" class="sound sound-right" data-element="sound" data-name="waterstream" src="https://www.noisli.com/assets/waterstream-062a443a13f5484f49e46b604a942057.png" onclick = "waterstreamPlay()" title="Water stream" />
     <div class="to-left" data-element="volume_slider" data-element-name="waterstream_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
@@ -117,12 +969,12 @@
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Seaside" class="sound sound-left" data-element="sound" data-name="seaside" src="https://www.noisli.com/assets/seaside-cdf1a934dffab7ef19f336cb431452df.png" title="Seaside" />
+    <img alt="Seaside" class="sound sound-left" data-element="sound" data-name="seaside" src="https://www.noisli.com/assets/seaside-cdf1a934dffab7ef19f336cb431452df.png" onclick = "seasidePlay()" title="Seaside" />
     <div class="to-left" data-element="volume_slider" data-element-name="seaside_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Water" class="sound sound-right" data-element="sound" data-name="water" src="https://www.noisli.com/assets/water-147e604d6a5d0e2b5c952ac117b135c3.png" title="Water" />
+    <img alt="Water" class="sound sound-right" data-element="sound" data-name="water" src="https://www.noisli.com/assets/water-147e604d6a5d0e2b5c952ac117b135c3.png" onclick = "waterPlay()" title="Water" />
     <div class="to-left" data-element="volume_slider" data-element-name="water_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
@@ -131,12 +983,12 @@
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Fire" class="sound sound-left" data-element="sound" data-name="fire" src="https://www.noisli.com/assets/fire-e77cc14123c2e330b9ec77cd572939e5.png" title="Fireplace" />
+    <img alt="Fire" class="sound sound-left" data-element="sound" data-name="fire" src="https://www.noisli.com/assets/fire-e77cc14123c2e330b9ec77cd572939e5.png" onclick = "firePlay()" title="Fireplace" />
     <div class="to-left" data-element="volume_slider" data-element-name="fire_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Summernight" class="sound sound-right" data-element="sound" data-name="summernight" src="https://www.noisli.com/assets/summernight-2cc6dacdacfed1109f50eab4686334bd.png" title="Summer night" />
+    <img alt="Summernight" class="sound sound-right" data-element="sound" data-name="summernight" src="https://www.noisli.com/assets/summernight-2cc6dacdacfed1109f50eab4686334bd.png" onclick = "summernightPlay()" title="Summer night" />
     <div class="to-left" data-element="volume_slider" data-element-name="summernight_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
@@ -145,12 +997,12 @@
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Coffee" class="sound sound-left" data-element="sound" data-name="coffee" src="https://www.noisli.com/assets/coffee-694ca06b5cf887557c4ca51b85a77059.png" title="Coffee shop" />
+    <img alt="Coffee" class="sound sound-left" data-element="sound" data-name="coffee" src="https://www.noisli.com/assets/coffee-694ca06b5cf887557c4ca51b85a77059.png" onclick = "coffeePlay()" title="Coffee shop" />
     <div class="to-left" data-element="volume_slider" data-element-name="coffee_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Train" class="sound sound-right" data-element="sound" data-name="train" src="https://www.noisli.com/assets/train-ef5005184278564125d92ae226ff4a07.png" title="Train" />
+    <img alt="Train" class="sound sound-right" data-element="sound" data-name="train" src="https://www.noisli.com/assets/train-ef5005184278564125d92ae226ff4a07.png" onclick = "trainPlay()" title="Train" />
     <div class="to-left" data-element="volume_slider" data-element-name="train_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
@@ -159,12 +1011,12 @@
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Fan" class="sound sound-left" data-element="sound" data-name="fan" src="https://www.noisli.com/assets/fan-bc5b15df194569b2e7da666c77cc1ab9.png" title="Fan" />
+    <img alt="Fan" class="sound sound-left" data-element="sound" data-name="fan" src="https://www.noisli.com/assets/fan-bc5b15df194569b2e7da666c77cc1ab9.png" onclick = "fanPlay()" title="Fan" />
     <div class="to-left" data-element="volume_slider" data-element-name="fan_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Whitenoise" class="sound sound-right" data-element="sound" data-name="whitenoise" src="https://www.noisli.com/assets/whitenoise-da6534d709bd33cae4cba4ab98d1ba6f.png" title="White noise" />
+    <img alt="Whitenoise" class="sound sound-right" data-element="sound" data-name="whitenoise" src="https://www.noisli.com/assets/whitenoise-da6534d709bd33cae4cba4ab98d1ba6f.png" onclick = "whitenoisePlay()" title="White noise" />
     <div class="to-left" data-element="volume_slider" data-element-name="whitenoise_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
@@ -173,12 +1025,12 @@
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Pinknoise" class="sound sound-left" data-element="sound" data-name="pinknoise" src="https://www.noisli.com/assets/pinknoise-ef192bcee222a654ac0226a1fbbfdd0e.png" title="Pink noise" />
+    <img alt="Pinknoise" class="sound sound-left" data-element="sound" data-name="pinknoise" src="https://www.noisli.com/assets/pinknoise-ef192bcee222a654ac0226a1fbbfdd0e.png" onclick = "pinknoisePlay()" title="Pink noise" />
     <div class="to-left" data-element="volume_slider" data-element-name="pinknoise_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Brownnoise" class="sound sound-right" data-element="sound" data-name="brownnoise" src="https://www.noisli.com/assets/brownnoise-af1c56e58b9b9009187bb23b4e4f1668.png" title="Brown noise" />
+    <img alt="Brownnoise" class="sound sound-right" data-element="sound" data-name="brownnoise" src="https://www.noisli.com/assets/brownnoise-af1c56e58b9b9009187bb23b4e4f1668.png" onclick = "brownnoisePlay()" title="Brown noise" />
     <div class="to-left" data-element="volume_slider" data-element-name="brownnoise_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>

@@ -22941,7 +22941,7 @@ function setupSound() {
   sound_controller = new SoundController;
   $.ajax({
     type: "GET",
-    url: "/get_sound_links",
+    url: "https://www.noisli.com/get_sound_links",
     dataType: "JSON",
     success: function (response) {
       if (response.success) {

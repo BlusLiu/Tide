@@ -4042,11 +4042,11 @@ div.sortable {
         display: block !important;
     }
 
-    .logged_in .modal-signup, .footer-logo-welcome, #account-menu-modal, #modal-save-file, #modal-timer,
+     .footer-logo-welcome, #account-menu-modal, #modal-save-file, #modal-timer,
     #noisli-favorites-module, #modal-text-editor, .noisli-menu-l-account-ul, .logged_in .modal-login {
         display: none !important;
     }
-
+    
     .col-xs-12 {
         padding-left: 0px !important;
         padding-right: 0px !important;
