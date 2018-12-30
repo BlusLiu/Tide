@@ -13313,6 +13313,7 @@ function hidePasswordSaved() {
   $($("#update_password-info").children()[0]).children().text("Update");
   $($("#update_password-info").children()[0]).css("background-color", "rgba(255,255,255,0.1)");
 }
+
 ;
 var lastSignupEvent = "";
 
@@ -13401,6 +13402,7 @@ $(document).ready(function() {
 			lastSignupEvent = signupCodes.get_combo_modal_signup;
 			trackSignupEvent(lastSignupEvent);
 		});
+
 
 
 //SIGNUP FORMS
@@ -13493,16 +13495,6 @@ function trackTriggeredSaveCombo() {
 function trackSignupUrl() {
 	lastSignupEvent = signupCodes.direct_modal;
 	trackSignupEvent(lastSignupEvent);
-}
-
-function trackChromeModal() {
-	_gaq.push(['_trackEvent', 'Chrome Modal', 'Modal']);
-    console.log("['_trackEvent', 'Chrome Modal', 'Modal']");
-}
-
-function trackChromeModalAction() {
-	_gaq.push(['_trackEvent', 'Chrome Modal', 'Modal - 001']);
-    console.log("['_trackEvent', 'Chrome Modal', 'Modal - 001']");
 }
 
 
@@ -21807,6 +21799,8 @@ function dashboardListeners() {
 }
 
 
+
+
 function bindListeners() {
 
   menuListerners();
@@ -21863,33 +21857,6 @@ function bindListeners() {
   $("[data-element='noisli-favorites-module']").hide();
   $("[data-element='noisli-timer-module']").hide();
   $("[data-element='noisli-text-editor-module']").hide();  
-
-  $("[data-element='login-span']").on("click", function(event) {
-    _gaq.push(['_trackEvent', 'Log in', 'Homepage']);
-    goToPageState('login');
-  });
-  $("[data-element='signup-span']").on("click", function(event) {
-    //GOOGLE ANALYTICS for this is being done on Analytics.js
-    goToPageState('signup');
-  });
-
-  $("[data-element='help-span']").on("click", function(event) {
-    //GOOGLE ANALYTICS for this is being done on Analytics.js
-    closePopupWithTracking('');
-    openPopup("signup-popup");
-  });
-  $("#signup-bottom").on("click", function(event) {
-    //GOOGLE ANALYTICS for this is being done on Analytics.js
-    goToPageState('signup');
-  });
-  $("#save-bottom").on("click", function(event) {
-    //GOOGLE ANALYTICS for this is being done on Analytics.js
-    openPopup("signup-popup");
-  });
-  $("#share-bottom").on("click", function(event) {
-    //GOOGLE ANALYTICS for this is being done on Analytics.js
-    openPopup("signup-popup");
-  });
 
 
 

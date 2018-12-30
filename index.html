@@ -7,19 +7,18 @@
         <link async="async" href="css/main.css" media="all" rel="stylesheet" type="text/css" />
         <link rel="icon" href="pic/favicon.ico" type="image/x­icon"/>
         <script src="js/main.js" type="text/javascript"></script>
-        <script type="text/javascript" src="https://cdn.bootcss.com/dropbox.js/4.0.13/Dropbox-sdk.js" id="dropboxjs" data-app-key="xkgnjpxcefggxor" async></script>
+       
 
       <!-- fonts -->
-        <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css' async>
-        <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' async>
+
         <meta charset="utf-8">
          
 
-          <style>
+<style>
         
 
 
-    .container {
+.container {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -288,9 +287,17 @@ p.signup-modal-sub a {
         document.getElementById('login_left').classList.add('hide');
         document.getElementById('logined_left').classList.remove('hide');
     }
+    function logOut(){
+        
+      
+        document.getElementById('login_left').classList.remove('hide');
+        document.getElementById('logined_left').classList.add('hide');
+    }
 </script>
 
 <script type="text/javascript">
+var username;
+
 function setCookie(){
   
   var d = new Date();
@@ -326,25 +333,84 @@ function getCookie(){
 
     { 
       var tname = c.split("=");
+      username = tname[0];
       alert("欢迎回来"+tname[0]);logIn(); return 0; }
   }
   alert("验证失败");
 }
 
-function checkCookie(){
-  var ca = document.cookie.split(';');
-  i=ca.length-1;
-  if(i == -1) return 0;
-    var c = ca[i].trim();
-    if (c!=null)
 
-    { 
-      var tname = c.split("=");
-      alert("欢迎回"+tname[0]+"!"); return 0; }
-  
-
+function getLikes(){
+    var u = username+'@';
+    alert(u);
+   
+	var ca = document.cookie.split(';');
+	for(var i=0; i<ca.length; i++) {
+		var c = ca[i].trim();
+		if (c.indexOf(u)==0) { 
+			var tc = c.split("@");
+			alert(tc[1]); return tc[1]; }
+	}
+	return "";
 }
 
+
+
+function setLikes(){
+    var i = 100;
+ 	if(rain_playing == 1)
+ 	{
+ 		i=0;
+ 	}
+ 	else if(thunderstorm_playing == 1)
+ 	{
+ 		i=1;
+ 	}
+ 	else if(wind_playing == 1)
+ 	{
+ 		i=2;	
+ 	}
+ 	else if(forest_playing == 1)
+ 	{
+ 		i=3;
+ 	}
+ 	else if(leaves_playing == 1)
+ 	{
+ 		i=4;
+ 	}
+ 	else if(waterstream_playing == 1)
+ 	{
+ 		i=5;
+ 	}
+ 	else if(seaside_playing == 1)
+ 	{
+ 		i=6;
+ 	}
+ 	else if(water_playing == 1)
+ 	{
+ 		i=7;
+ 	}
+ 	else{
+ 		alert("点击一个喜欢的进行收藏");
+ 		
+ 	}
+ 	alert("收藏");
+ 	if(i!=100)
+ 	{
+ 	var d = new Date();
+	d.setTime(d.getTime()+(1*24*60*60*1000));
+	var expires = "expires="+d.toGMTString();
+	var tu = username+"@"+i+"; "+expires;
+	document.cookie = tu;
+	alert(tu);
+	
+	alert("收藏成功");
+ 	}
+
+
+
+
+}
 </script>
 <script type="text/javascript">
               var rain_playing = 0;
@@ -363,7 +429,47 @@ function checkCookie(){
               var pinknoise_playing = 0;
               var brownnoise_playing = 0;
               var coffee_playing = 0;
+              var r_playing = 0;
+              var p_playing = 0;
 
+ 
+    var mp3 =
+             {"rain":"https://cdn.noisli.com/mp3/rain/rain.mp3",
+              "thunderstorm":"https://cdn.noisli.com/mp3/thunderstorm/thunderstorm.mp3",
+              "wind":"https://cdn.noisli.com/mp3/wind/wind.mp3",
+              "forest":"https://cdn.noisli.com/mp3/forest/forest.mp3",
+              "leaves":"https://cdn.noisli.com/mp3/leaves/leaves.mp3",
+              "waterstream":"https://cdn.noisli.com/mp3/waterstream/waterstream.mp3",
+              "seaside":"https://cdn.noisli.com/mp3/seaside/seaside.mp3",
+              "water":"https://cdn.noisli.com/mp3/water/water.mp3",
+              "fire":"https://cdn.noisli.com/mp3/fire/fire.mp3",
+              "summernight":"https://cdn.noisli.com/mp3/summernight/summernight.mp3",
+              "coffee":"https://cdn.noisli.com/mp3/coffee/coffee.mp3",
+              "train":"https://cdn.noisli.com/mp3/train/train.mp3",
+              "fan":"https://cdn.noisli.com/mp3/fan/fan.mp3",
+              "whitenoise":"https://cdn.noisli.com/mp3/whitenoise/whitenoise.mp3",
+              "pinknoise":"https://cdn.noisli.com/mp3/pinknoise/pinknoise.mp3",
+              "brownnoise":"https://cdn.noisli.com/mp3/brownnoise/brownnoise.mp3"
+            }
+            var mp3_name = new Array(
+            	"rain",
+              "thunderstorm",
+              "wind",
+              "forest",
+              "leaves",
+              "waterstream",
+              "seaside",
+              "water",
+              "fire",
+              "summernight",
+              "coffee",
+              "train",
+              "fan",
+              "whitenoise",
+              "pinknoise",
+              "brownnoise")
+            	
+            
             function rainPlay() {
               var myAuto0 = document.getElementById('rain_m');
               if(rain_playing)
@@ -371,13 +477,15 @@ function checkCookie(){
                
             
                   myAuto0.pause();    
-                  rain_playing = 0;           
+                  rain_playing = 0;    
+                  document.getElementById('rain').style.opacity = 0.5;       
               }
               else
               {
               
                   myAuto0.play();
                   rain_playing = 1;
+                  document.getElementById('rain').style.opacity = 1;
               }              
             }
             function thunderstormPlay() {
@@ -387,13 +495,15 @@ function checkCookie(){
           
             
                   myAuto1.pause();   
-                  thunderstorm_playing = 0;           
+                  thunderstorm_playing = 0;     
+                  document.getElementById('thunderstorm').style.opacity = 0.5;      
               }
               else
               {
                
                   myAuto1.play();
                   thunderstorm_playing = 1;
+                  document.getElementById('thunderstorm').style.opacity = 1;
               }              
             }
           
@@ -403,12 +513,14 @@ function checkCookie(){
               {
                         
                   myAuto2.pause();   
-                  wind_playing = 0;           
+                  wind_playing = 0;     
+                  document.getElementById('wind').style.opacity = 0.5;      
               }
               else
               {
                   myAuto2.play();
                   wind_playing = 1;
+                  document.getElementById('wind').style.opacity = 1;
               }              
             }
             function forestPlay() {
@@ -418,13 +530,15 @@ function checkCookie(){
               
             
                   myAuto3.pause();   
-                  forest_playing = 0;           
+                  forest_playing = 0;       
+                  document.getElementById('forest').style.opacity = 0.5;    
               }
               else
               {
                 
                   myAuto3.play();
                   forest_playing = 1;
+                  document.getElementById('forest').style.opacity = 1;
               }              
             }
             function leavesPlay() {
@@ -434,13 +548,15 @@ function checkCookie(){
               
           
                   myAuto4.pause();   
-                  leaves_playing = 0;           
+                  leaves_playing = 0;        
+                  document.getElementById('leaves').style.opacity = 0.5;   
               }
               else
               {
                
                   myAuto4.play();
                   leaves_playing = 1;
+                  document.getElementById('leaves').style.opacity = 1;
               }              
             }
             function waterstreamPlay() {
@@ -450,13 +566,15 @@ function checkCookie(){
               
        
                   myAuto5.pause();   
-                  waterstream_playing = 0;           
+                  waterstream_playing = 0;      
+                  document.getElementById('waterstream').style.opacity = 0.5;     
               }
               else
               {
              
                   myAuto5.play();
                   waterstream_playing = 1;
+                  document.getElementById('waterstream').style.opacity = 1;
               }              
             }
             function seasidePlay() {
@@ -466,13 +584,15 @@ function checkCookie(){
               
         
                   myAuto6.pause();   
-                  seaside_playing = 0;           
+                  seaside_playing = 0;     
+                  document.getElementById('seaside').style.opacity = 0.5;      
               }
               else
               {
       
                   myAuto6.play();
                   seaside_playing = 1;
+                  document.getElementById('seaside').style.opacity = 1;
               }              
             }
             function waterPlay() {
@@ -481,13 +601,15 @@ function checkCookie(){
               {
         
                   myAuto7.pause();   
-                  water_playing = 0;           
+                  water_playing = 0;      
+                  document.getElementById('water').style.opacity = 0.5;     
               }
               else
               {
         
                   myAuto7.play();
                   water_playing = 1;
+                  document.getElementById('water').style.opacity = 1;
               }              
             }
             function firePlay() {
@@ -496,13 +618,15 @@ function checkCookie(){
               {
           
                   myAuto8.pause();   
-                  fire_playing = 0;           
+                  fire_playing = 0;      
+                  document.getElementById('fire').style.opacity = 0.5;     
               }
               else
               {
       
                   myAuto8.play();
                   fire_playing = 1;
+                  document.getElementById('fire').style.opacity = 1;
               }              
             }
             function summernightPlay() {
@@ -512,13 +636,15 @@ function checkCookie(){
             
        
                   myAuto9.pause();   
-                  summernight_playing = 0;           
+                  summernight_playing = 0;      
+                  document.getElementById('ummernight').style.opacity = 0.5;     
               }
               else
               {
   
                   myAuto9.play();
                   summernight_playing = 1;
+                  document.getElementById('ummernight').style.opacity = 1;
               }              
             }
             function coffeePlay() {
@@ -528,13 +654,15 @@ function checkCookie(){
               
 
                   myAuto10.pause();   
-                  coffee_playing = 0;           
+                  coffee_playing = 0;          
+                  document.getElementById('coffee').style.opacity = 0.5; 
               }
               else
               {
        
                   myAuto10.play();
                   coffee_playing = 1;
+                  document.getElementById('coffee').style.opacity = 1;
               }              
             }
             function trainPlay() {
@@ -543,13 +671,15 @@ function checkCookie(){
               {
                  
                   myAuto11.pause();   
-                  train_playing = 0;           
+                  train_playing = 0;        
+                  document.getElementById('train').style.opacity = 0.5;   
               }
               else
               {
                 
                   myAuto11.play();
                   train_playing = 1;
+                  document.getElementById('train').style.opacity = 1;
               }              
             }
             function fanPlay() {
@@ -558,13 +688,15 @@ function checkCookie(){
               {
                   
                   myAuto12.pause();   
-                  fan_playing = 0;           
+                  fan_playing = 0;         
+                  document.getElementById('fan').style.opacity = 0.5;  
               }
               else
               {
                 
                   myAuto12.play();
                   fan_playing = 1;
+                  document.getElementById('fan').style.opacity = 1;
               }              
             }
             function whitenoisePlay() {
@@ -575,12 +707,14 @@ function checkCookie(){
        
                   myAuto13.pause();   
                   whitenoise_playing = 0;           
+                  document.getElementById('whitenoise').style.opacity = 0.5;
               }
               else
               {
              
                   myAuto13.play();
                   whitenoise_playing = 1;
+                  document.getElementById('whitenoise').style.opacity = 1;
               }              
             }
             function pinknoisePlay() {
@@ -591,12 +725,14 @@ function checkCookie(){
          
                   myAuto14.pause();   
                   pinknoise_playing = 0;           
+                  document.getElementById('pinknoise').style.opacity = 0.5;
               }
               else
               {
               
                   myAuto14.play();
                   pinknoise_playing = 1;
+                  document.getElementById('pinknoise').style.opacity = 1;
               }              
             }
             function brownnoisePlay() {
@@ -607,44 +743,105 @@ function checkCookie(){
                 
                   myAuto15.pause();   
                   brownnoise_playing = 0;           
+                  document.getElementById('brownnoise').style.opacity = 0.5;
               }
               else
               {
              
                   myAuto15.play();
                   brownnoise_playing = 1;
+                  document.getElementById('brownnoise').style.opacity = 1;
               }              
             }
             var myAuto16 = 0;
             function rPlay() {
               var rt = Math.floor(Math.random()*16);
-              document.getElementById('r1_m').src = mp3[i];
+              var ri = mp3_name[rt];
+              var allmp3 = document.getElementsByName("mp3");
+              document.getElementById('r1_m').src = mp3[ri];
               var myAuto16 = document.getElementById('r1_m');
               for (var i = allmp3.length - 1; i >= 0; i--) {
                   allmp3[i].pause();
                 }
-              if(brownnoise_playing)
+              if(r_playing)
               {
           
                 
                   myAuto16.pause();   
-                  brownnoise_playing = 0;           
+                  r_playing = 0;           
               }
               else
               {
              
-                  myAuto15.play();
-                  brownnoise_playing = 1;
+                  myAuto16.play();
+                  r_playing = 1;
               }              
             }
-            
+            var myAuto17 = 0;
+            var myAuto18 = 0;
+            var myAuto19 = 0;
+            function pPlay() {
+              
+              var allmp3 = document.getElementsByName("mp3");
+              document.getElementById('r1_m').src = mp3["rain"];
+              document.getElementById('r2_m').src = mp3["coffee"];
+              document.getElementById('r3_m').src = mp3["fire"];
+              var myAuto17 = document.getElementById('r1_m');
+              var myAuto18 = document.getElementById('r2_m');
+              var myAuto19 = document.getElementById('r3_m');
+              for (var i = allmp3.length - 1; i >= 0; i--) {
+                  allmp3[i].pause();
+                }
+              if(p_playing)
+              {
+          
+                
+                  myAuto17.pause(); 
+                  myAuto18.pause(); 
+                  myAuto19.pause();   
+                  p_playing = 0;           
+              }
+              else
+              {
+             
+                  myAuto17.play();
+                  myAuto18.play();
+                  myAuto19.play();
+                  p_playing = 1;
+              }              
+            }
+
+            var like_playing = 0;
+            function playLike(ti){
+			  
+              var ri = mp3_name[ti];
+              var allmp3 = document.getElementsByName("mp3");
+              document.getElementById('like_m').src = mp3[ri];
+              var myAuto20 = document.getElementById('like_m');
+              for (var i = allmp3.length - 1; i >= 0; i--) {
+                  allmp3[i].pause();
+                }
+              if(like_playing)
+              {
+          
+                
+                  myAuto20.pause();   
+                  like_playing = 0;           
+              }
+              else
+              {
+             
+                  myAuto20.play();
+                  like_playing = 1;
+              }  	
+			}
          
 
  </script>
   
 
  <audio id ="forest_m" name = "mp3"  loop>
-    <source src="sound/9806.mp3"  >
+    <source src="https://cdn.noisli.com/mp3/forest/forest.mp3"  >
     </audio> 
     <audio id ="rain_m" name = "mp3"  loop>
     <source src="https://cdn.noisli.com/mp3/rain/rain.mp3"  >
@@ -700,32 +897,11 @@ function checkCookie(){
     <audio id ="r3_m" name = "mp3"  loop>
     <source src=""  >
     </audio> 
-
+    <audio id ="like_m" name = "mp3"  loop>
+    <source src=""  >
+    </audio> 
     
     
-
-    <script type="text/javascript">
-    var mp3 =
-             {"rain":"https://cdn.noisli.com/mp3/rain/rain.mp3",
-              "thunderstorm":"https://cdn.noisli.com/mp3/thunderstorm/thunderstorm.mp3",
-              "wind":"https://cdn.noisli.com/mp3/wind/wind.mp3",
-              "forest":"https://cdn.noisli.com/mp3/forest/forest.mp3",
-              "leaves":"https://cdn.noisli.com/mp3/leaves/leaves.mp3",
-              "waterstream":"https://cdn.noisli.com/mp3/waterstream/waterstream.mp3",
-              "seaside":"https://cdn.noisli.com/mp3/seaside/seaside.mp3",
-              "water":"https://cdn.noisli.com/mp3/water/water.mp3",
-              "fire":"https://cdn.noisli.com/mp3/fire/fire.mp3",
-              "summernight":"https://cdn.noisli.com/mp3/summernight/summernight.mp3",
-              "coffee":"https://cdn.noisli.com/mp3/coffee/coffee.mp3",
-              "train":"https://cdn.noisli.com/mp3/train/train.mp3",
-              "fan":"https://cdn.noisli.com/mp3/fan/fan.mp3",
-              "whitenoise":"https://cdn.noisli.com/mp3/whitenoise/whitenoise.mp3",
-              "pinknoise":"https://cdn.noisli.com/mp3/pinknoise/pinknoise.mp3",
-              "brownnoise":"https://cdn.noisli.com/mp3/brownnoise/brownnoise.mp3"
-            }
-
-
-    </script>
 
 
 
@@ -827,9 +1003,9 @@ function checkCookie(){
               <a href="javascript:Show2();"><p id="login-span" data-element="login-span">登 陆</p></a>
             </div>
             <div class="login-div hide" id="logined_left">
-              <a href="javascript:Show1();"><p id="signup-span" data-element="signup-span">爱 好</p></a>
-           
-              <a href="javascript:Show2();"><p id="login-span" data-element="login-span">退 出</p></a>
+              <a href="javascript:playLike(getLikes());"><p  id="xihao-span" data-element="xihao-span">喜 好</p></a>
+              <a href="javascript:setLikes();"><p  id="like-span" data-element="like-span">❤</p></a>
+              <a href="javascript:logOut();"><p  id="xihao-span" data-element="xihao-span">退 出</p></a>
             </div>
 
 
@@ -863,17 +1039,6 @@ function checkCookie(){
        
 
             </script>
-
-            
-
-
-
- 
-
-
-
-
-
 
   <div class="mute-div">
     <ul class="mute-header">
@@ -913,7 +1078,7 @@ function checkCookie(){
     <div class="col-lg-6 col-lg-offset-1 col-md-8 col-sm-8 col-xs-12 text-center">
       <ul class="presets-ul">
         <li class="presets-li"><a href="javascript:rPlay();"><span class="presets-span" id="random-button-out">随机</span></a></li>
-        <li class="presets-li"><a href="javascript:;"><span class="presets-span" id="productivity-button-out">专注</span></a></li>
+        <li class="presets-li"><a href="javascript:pPlay();"><span class="presets-span" id="productivity-button-out">专注</span></a></li>
         <li class="presets-li"><a href="javascript:;"><span class="presets-span" id="relax-button-out">放松</span></a></li>
       </ul>
 </div>
@@ -923,14 +1088,14 @@ function checkCookie(){
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Rain" class="sound sound-left" data-element="sound" data-name="rain" src="https://www.noisli.com/assets/rain-9803d4c7c81e30d30f048b266281d60b.png" onclick = "rainPlay()" title="Rain" />
+    <img alt="Rain" class="sound sound-left" data-element="sound" id="rain" src="https://www.noisli.com/assets/rain-9803d4c7c81e30d30f048b266281d60b.png" onclick = "rainPlay()" title="Rain" />
     <div class="to-left" data-element="volume_slider" data-element-name="rain_slider">
 	
     </div>
   </div>
   <div class="col-lg-2 col-md-2 hiddne-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Thunderstorm" class="sound sound-right" data-element="sound" data-name="thunderstorm" src="https://www.noisli.com/assets/thunderstorm-e4d137c115f626f6c2caf0c378b2c927.png" onclick = "thunderstormPlay()" title="Thunderstorm" />
+    <img alt="Thunderstorm" class="sound sound-right" data-element="sound" id="thunderstorm" src="https://www.noisli.com/assets/thunderstorm-e4d137c115f626f6c2caf0c378b2c927.png" onclick = "thunderstormPlay()" title="Thunderstorm" />
     <div class="to-left" data-element="volume_slider" data-element-name="thunderstorm_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
@@ -939,12 +1104,12 @@ function checkCookie(){
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Wind" class="sound sound-left" data-element="sound" data-name="wind" src="https://www.noisli.com/assets/wind-5bfcf33faaab320c6ebaae5ff4c8cdbd.png" onclick = "windPlay()" title="Wind" />
+    <img alt="Wind" class="sound sound-left" data-element="sound" id="wind" src="https://www.noisli.com/assets/wind-5bfcf33faaab320c6ebaae5ff4c8cdbd.png" onclick = "windPlay()" title="Wind" />
     <div class="to-left" data-element="volume_slider" data-element-name="wind_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Forest" class="sound sound-right" data-element="sound" data-name="forest" src="https://www.noisli.com/assets/forest-d6c11662d8931c5d494ada936e7c3df5.png" onclick = "forestPlay()" title="Forest" />
+    <img alt="Forest" class="sound sound-right" data-element="sound" id="forest" src="https://www.noisli.com/assets/forest-d6c11662d8931c5d494ada936e7c3df5.png" onclick = "forestPlay()" title="Forest" />
     <div class="to-left" data-element="volume_slider" data-element-name="forest_slider">
 
     </div>
@@ -955,12 +1120,12 @@ function checkCookie(){
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Leaves" class="sound sound-left" data-element="sound" data-name="leaves" src="https://www.noisli.com/assets/leaves-d8154f4a276e4b17bd2b5ad89d661ee4.png" onclick = "leavesPlay()" title="Leaves" />
+    <img alt="Leaves" class="sound sound-left" data-element="sound" id="leaves" src="https://www.noisli.com/assets/leaves-d8154f4a276e4b17bd2b5ad89d661ee4.png" onclick = "leavesPlay()" title="Leaves" />
     <div class="to-left" data-element="volume_slider" data-element-name="leaves_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Waterstream" class="sound sound-right" data-element="sound" data-name="waterstream" src="https://www.noisli.com/assets/waterstream-062a443a13f5484f49e46b604a942057.png" onclick = "waterstreamPlay()" title="Water stream" />
+    <img alt="Waterstream" class="sound sound-right" data-element="sound" id="waterstream" src="https://www.noisli.com/assets/waterstream-062a443a13f5484f49e46b604a942057.png" onclick = "waterstreamPlay()" title="Water stream" />
     <div class="to-left" data-element="volume_slider" data-element-name="waterstream_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
@@ -969,12 +1134,12 @@ function checkCookie(){
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Seaside" class="sound sound-left" data-element="sound" data-name="seaside" src="https://www.noisli.com/assets/seaside-cdf1a934dffab7ef19f336cb431452df.png" onclick = "seasidePlay()" title="Seaside" />
+    <img alt="Seaside" class="sound sound-left" data-element="sound" id="seaside" src="https://www.noisli.com/assets/seaside-cdf1a934dffab7ef19f336cb431452df.png" onclick = "seasidePlay()" title="Seaside" />
     <div class="to-left" data-element="volume_slider" data-element-name="seaside_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Water" class="sound sound-right" data-element="sound" data-name="water" src="https://www.noisli.com/assets/water-147e604d6a5d0e2b5c952ac117b135c3.png" onclick = "waterPlay()" title="Water" />
+    <img alt="Water" class="sound sound-right" data-element="sound" id="water" src="https://www.noisli.com/assets/water-147e604d6a5d0e2b5c952ac117b135c3.png" onclick = "waterPlay()" title="Water" />
     <div class="to-left" data-element="volume_slider" data-element-name="water_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
@@ -983,12 +1148,12 @@ function checkCookie(){
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Fire" class="sound sound-left" data-element="sound" data-name="fire" src="https://www.noisli.com/assets/fire-e77cc14123c2e330b9ec77cd572939e5.png" onclick = "firePlay()" title="Fireplace" />
+    <img alt="Fire" class="sound sound-left" data-element="sound" id="fire" src="https://www.noisli.com/assets/fire-e77cc14123c2e330b9ec77cd572939e5.png" onclick = "firePlay()" title="Fireplace" />
     <div class="to-left" data-element="volume_slider" data-element-name="fire_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Summernight" class="sound sound-right" data-element="sound" data-name="summernight" src="https://www.noisli.com/assets/summernight-2cc6dacdacfed1109f50eab4686334bd.png" onclick = "summernightPlay()" title="Summer night" />
+    <img alt="Summernight" class="sound sound-right" data-element="sound" id="summernight" src="https://www.noisli.com/assets/summernight-2cc6dacdacfed1109f50eab4686334bd.png" onclick = "summernightPlay()" title="Summer night" />
     <div class="to-left" data-element="volume_slider" data-element-name="summernight_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
@@ -997,12 +1162,12 @@ function checkCookie(){
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Coffee" class="sound sound-left" data-element="sound" data-name="coffee" src="https://www.noisli.com/assets/coffee-694ca06b5cf887557c4ca51b85a77059.png" onclick = "coffeePlay()" title="Coffee shop" />
+    <img alt="Coffee" class="sound sound-left" data-element="sound" id="coffee" src="https://www.noisli.com/assets/coffee-694ca06b5cf887557c4ca51b85a77059.png" onclick = "coffeePlay()" title="Coffee shop" />
     <div class="to-left" data-element="volume_slider" data-element-name="coffee_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Train" class="sound sound-right" data-element="sound" data-name="train" src="https://www.noisli.com/assets/train-ef5005184278564125d92ae226ff4a07.png" onclick = "trainPlay()" title="Train" />
+    <img alt="Train" class="sound sound-right" data-element="sound" id="train" src="https://www.noisli.com/assets/train-ef5005184278564125d92ae226ff4a07.png" onclick = "trainPlay()" title="Train" />
     <div class="to-left" data-element="volume_slider" data-element-name="train_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
@@ -1011,12 +1176,12 @@ function checkCookie(){
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Fan" class="sound sound-left" data-element="sound" data-name="fan" src="https://www.noisli.com/assets/fan-bc5b15df194569b2e7da666c77cc1ab9.png" onclick = "fanPlay()" title="Fan" />
+    <img alt="Fan" class="sound sound-left" data-element="sound" id="fan" src="https://www.noisli.com/assets/fan-bc5b15df194569b2e7da666c77cc1ab9.png" onclick = "fanPlay()" title="Fan" />
     <div class="to-left" data-element="volume_slider" data-element-name="fan_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Whitenoise" class="sound sound-right" data-element="sound" data-name="whitenoise" src="https://www.noisli.com/assets/whitenoise-da6534d709bd33cae4cba4ab98d1ba6f.png" onclick = "whitenoisePlay()" title="White noise" />
+    <img alt="Whitenoise" class="sound sound-right" data-element="sound" id="whitenoise" src="https://www.noisli.com/assets/whitenoise-da6534d709bd33cae4cba4ab98d1ba6f.png" onclick = "whitenoisePlay()" title="White noise" />
     <div class="to-left" data-element="volume_slider" data-element-name="whitenoise_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
@@ -1025,16 +1190,17 @@ function checkCookie(){
 <div class="row" id="players">
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Pinknoise" class="sound sound-left" data-element="sound" data-name="pinknoise" src="https://www.noisli.com/assets/pinknoise-ef192bcee222a654ac0226a1fbbfdd0e.png" onclick = "pinknoisePlay()" title="Pink noise" />
+    <img alt="Pinknoise" class="sound sound-left" data-element="sound" id="pinknoise" src="https://www.noisli.com/assets/pinknoise-ef192bcee222a654ac0226a1fbbfdd0e.png" onclick = "pinknoisePlay()" title="Pink noise" />
     <div class="to-left" data-element="volume_slider" data-element-name="pinknoise_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
-    <img alt="Brownnoise" class="sound sound-right" data-element="sound" data-name="brownnoise" src="https://www.noisli.com/assets/brownnoise-af1c56e58b9b9009187bb23b4e4f1668.png" onclick = "brownnoisePlay()" title="Brown noise" />
+    <img alt="Brownnoise" class="sound sound-right" data-element="sound" id="brownnoise" src="https://www.noisli.com/assets/brownnoise-af1c56e58b9b9009187bb23b4e4f1668.png" onclick = "brownnoisePlay()" title="Brown noise" />
     <div class="to-left" data-element="volume_slider" data-element-name="brownnoise_slider"></div>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
 </div>
+
 
 
 <div class="row">
@@ -1062,7 +1228,7 @@ function checkCookie(){
           <a href="https://play.google.com/store/apps/details?id=com.noisli.noisli" target="_blank" title="Noisli Android app available on Google Play"><img alt="Noisli Android app available on Google Play" src="https://www.noisli.com/assets/play-store-badge-81c7ba82223a3b0ca41bed0e7068c52b.png" /></a>
           <a href="https://chrome.google.com/webstore/detail/noisli/klejemegaoblahjdpcajmpcnjjmkmkkf" target="_blank" title="Noisli Chrome extension available on the Chrome Web Store"><img alt="Noisli Chrome extension available on the Chrome Web Store" src="https://www.noisli.com/assets/chrome-web-store-badge-f37c17d457264186a2c6a4f22162c71e.png" /></a>
         </div>
-        <p class="footer-copyright-text">&copy; 2014 Noisli Ltd - All Rights Reserved</p>
+        <p class="footer-copyright-text">&copy; 2018 潮汐</p>
       </div>
       <div class="col-md-1 col-sm-1 col-xs-1 text-center"></div>
     </div>
@@ -1150,23 +1316,7 @@ function checkCookie(){
             <li><a target='_blank' href="http://blog.noisli.com">Blog</a></li>
             <li><a target='_blank' href="/features">Features</a></li>
             <li><a target='_blank' href="/terms">Terms & Privacy</a></li>
-            <li>
-              <script type="text/javascript">
-                //<![CDATA[
-                <!--
-                  var x="function f(x){var i,o=\"\",ol=x.length,l=ol;while(x.charCodeAt(l/13)!" +
-                    "=52){try{x+=x;l+=l;}catch(e){}}for(i=l-1;i>=0;i--){o+=x.charAt(i);}return o" +
-                ".substr(0,ol);}f(\")81,\\\"BHL_WJ220\\\\]M400\\\\410\\\\710\\\\130\\\\200\\" +
-                "\\400\\\\)WJ;310\\\\n\\\\700\\\\M310\\\\r\\\\320\\\\613430\\\\465=?l: ?;0=m" +
-                "220\\\\p*.8!h`-+%/ 630\\\\g200\\\\JX[I[M030\\\\Vn\\\\720\\\\330\\\\_CH_@URr" +
-                "\\\\Uqxvltzw\\\"(f};o nruter};))++y(^)i(tAedoCrahc.x(edoCrahCmorf.gnirtS=+o" +
-                  ";721=%y;++y)81<i(fi{)++i;l<i;0=i(rof;htgnel.x=l,\\\"\\\"=o,i rav{)y,x(f noi" +
-                  "tcnuf\")"                                                                    ;
-                while(x=eval(x));
-                //-->
-                //]]>
-              </script>
-            </li>
+
           </ul>
         </div>
       </div>
