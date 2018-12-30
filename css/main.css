@@ -140,7 +140,10 @@ div.login-div {
 }
 
 p#login-span,
+p#out-span,
+p#xihao-span,
 p#signup-span,
+p#like-span,
 p#help-span,
 #signout-span {
     float:left;
@@ -158,20 +161,27 @@ p#help-span,
     color: rgb(255,255,255) !important;
 }
 p#login-span:hover,
+p#out-span:hover,
+p#xihao-span:hover,
 p#signup-span:hover,
 p#help-span:hover,
+p#like-span:hover,
 #signout-span:hover {
     background-color: rgba(255,255,255,0.25);
 }
 
-p#help-span {
+
+p#help-span,
+p#like-span {
     width: 35px;
     margin-left: 4px;
     font-size: 14px !important;
     padding-top: 6px;
 }
 
-#help-span-green {
+
+#help-span-green,
+#like-span-green {
     border: none;
     background-color: rgb(138,220,179);
     padding: 5px;
