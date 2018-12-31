@@ -1,5 +1,246 @@
 <style>
 
+
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* MODAL SIGNUP */
+.modal-signup{
+    position: fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    background-color: rgba(29,29,27,0.6);
+    z-index: 1000;
+}
+#signup-modal {
+    margin: 80px 0;
+    height: 100%;
+    background-color: rgb(249,249,249);
+    border-radius: 20px;
+    text-align: center;
+
+}
+p.signup-modal-title {
+    font-size: 18px;
+    color: rgb(138,220,179);
+    margin-top: 30px;
+    font-weight: 500;
+}
+p.signup-modal-subtitle {
+    font-size: 15px;
+    color: rgb(201,201,201);
+    margin-top: -5px;
+    font-weight: 400;
+}
+p.signup-modal-subtitle a {
+    color: rgb(138,220,179);
+}
+p.signup-modal-sub {
+    font-size: 13px;
+    color: rgb(201,201,201);
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-weight: 400;
+    text-align: left;
+}
+p.signup-modal-sub a {
+    color: rgb(138,220,179);
+}
+#signup-modal {
+    min-height: 550px;
+    max-height: 550px;
+    text-align: center;
+    margin-left: 0 !important;
+}
+
+#signup-modal form #signup-modal-input-email, form #email {
+    margin: 50px 0 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+#signup-modal form #signup-modal-input-email, form #user_email, form #email {
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid rgb(255,255,255);
+    background-color: rgb(255,255,255);
+    -webkit-border-radius: 17.5px;
+    -moz-border-radius: 17.5px;
+    border-radius: 17.5px;
+    height: 35px;
+    width: 355px;
+    padding: 0 20px;
+    margin: 40px 0 10px;
+    color: rgb(138,220,179);
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#combo-name, #combo-rename {
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid rgb(255,255,255);
+    background-color: rgb(255,255,255);
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    height: 35px;
+    width: 355px;
+    padding: 0 10px;
+    margin: 40px 0 10px;
+    color: rgb(138,220,179);
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#signup-modal form #signup-modal-input-email:focus, #combo-name:focus, #combo-rename, form #user_email:focus, form #email:focus {
+    outline:none;
+    border: 1px rgb(138,220,179) solid;
+}
+
+#signup-modal form #signup-modal-input-password, form #password {
+    margin: -4px 0 0px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+#change_pass_pass {
+    margin-top: 5px !important;
+}
+
+#change_pass_pass_confirmation {
+    margin-top: -5px !important;
+}
+#signup-modal form #signup-modal-input-password, #change_pass_pass_confirmation, #change_pass_pass,form #password {
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid rgb(255,255,255);
+    background-color: rgb(255,255,255);
+    -webkit-border-radius: 17.5px;
+    -moz-border-radius: 17.5px;
+    border-radius: 25px;
+    height: 35px;
+    width: 355px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin: 10px 0 0px;
+    color: rgb(138,220,179);
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#signup-modal form #signup-modal-input-password-2 {
+    font-size: 15px;
+    font-weight: 400;
+    border: 1px solid rgb(255,255,255);
+    background-color: rgb(255,255,255);
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    height: 35px;
+    width: 100%;
+    padding: 0 10px;
+    margin: 10px 0 0px;
+    color: rgb(138,220,179);
+}
+#signup-modal form #signup-modal-input-password:focus, #change_pass_pass_confirmation:focus, #change_pass_pass:focus,form #password:focus {
+    outline:none;
+    border: 1px rgb(138,220,179) solid;
+}
+
+#signup-modal form #signup-modal-input-submit {
+    font-weight: 700;
+    width: 160px;
+    height: 35px;
+    -webkit-border-radius: 17.5px;
+    -moz-border-radius: 17.5px;
+    border-radius: 17.5px;
+}
+
+#change_pass_button {
+    margin-top: 35px !important;
+}
+
+#signup-modal form #signup-modal-input-submit, #change_pass_button  {
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    background-color: rgb(138,220,179);
+    -webkit-border-radius: 17.5px;
+    -moz-border-radius: 17.5px;
+    border-radius: 17.5px;
+    width: 160px;
+    height: 35px;
+    padding: 0 10px;
+    margin: 30px 0 0px;
+    color: rgb(255,255,255);
+}
+
+#signup-modal form #signup-modal-input-submit:focus, #change_pass_button:focus {
+    outline:none;
+    border: none;
+}
+#signup-modal input#signup-fb, #login-fb {
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    background-color: rgb(59,89,152);
+    -webkit-border-radius: 17.5px;
+    -moz-border-radius: 17.5px;
+    border-radius: 17.5px;
+    height: 35px;
+    width: 160px;
+    padding: 0 10px;
+    margin: 60px 0 0px;
+    color: rgb(255,255,255);
+}
+#signup-modal input#signup-fb:focus {
+    outline:none;
+    border: none;
+}
+#signup-modal input#signup-g {
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    background-color: rgb(223,74,50);
+    -webkit-border-radius: 17.5px;
+    -moz-border-radius: 17.5px;
+    border-radius: 17.5px;
+    height: 35px;
+    width: 160px;
+    padding: 0 10px;
+
+    margin: 0px 0 0px;
+    color: rgb(255,255,255);
+}
+
+
+        .hide{
+            display: none;
+        }
+
+
 .noisli-popup .modal-content {
   background-color: rgb(249,249,249);
   border-radius: 20px;
